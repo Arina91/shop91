@@ -41,7 +41,10 @@ class MainController extends Controller
 		return back();
 
 	}
+ function test()
+ {
 
+ }
 }
 
 
