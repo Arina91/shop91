@@ -8,6 +8,7 @@ use App\Product;
 use App\Review;
 class MainController extends Controller
 {
+    // main page
     public function index()
     {
 		$categories = Category::with('products')->get();
@@ -15,7 +16,7 @@ class MainController extends Controller
 		('recommended', '=', 1)->get();
 		return view('main.index', compact ('categories', 'products'));
 	}
-	
+
 	public function category(string $slug)
 	{
 		$category = Category::firstWhere('slug', $slug);
@@ -35,12 +36,12 @@ class MainController extends Controller
 		$review->user_id = $request->user;
 		$review->product_id= $request->product;
 		$review->save(); //сохраняет данные модели в Базу Данных
-		
+
 
 		return back();
-		
+
 	}
-	
+
 }
 
 
